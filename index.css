@@ -1,0 +1,374 @@
+Apps/web/SRC/index.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 25% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 14%;
+
+    --primary: 206 100% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 25% 95%;
+    --secondary-foreground: 222 25% 14%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 42%;
+
+    --accent: 206 100% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 355 78% 48%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 20% 89%;
+    --input: 214 20% 89%;
+    --ring: 206 100% 36%;
+    --radius: 0.375rem;
+
+    --navy-deep: 0 0% 100%;
+    --navy: 210 25% 97%;
+    --navy-surface: 0 0% 100%;
+    --navy-elevated: 210 22% 95%;
+
+    --gold: 206 100% 36%;
+    --gold-bright: 206 90% 48%;
+    --gold-muted: 206 30% 65%;
+
+    --teal: 355 78% 48%;
+    --teal-bright: 355 85% 58%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 25% 14%;
+    --sidebar-primary: 206 100% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 22% 95%;
+    --sidebar-accent-foreground: 222 25% 14%;
+    --sidebar-border: 214 20% 89%;
+    --sidebar-ring: 206 100% 36%;
+  }
+
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 222 25% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 14%;
+    --primary: 206 100% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 25% 95%;
+    --secondary-foreground: 222 25% 14%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 42%;
+    --accent: 206 100% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 355 78% 48%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 20% 89%;
+    --input: 214 20% 89%;
+    --ring: 206 100% 36%;
+    --navy-deep: 0 0% 100%;
+    --navy: 210 25% 97%;
+    --navy-surface: 0 0% 100%;
+    --navy-elevated: 210 22% 95%;
+    --gold: 206 100% 36%;
+    --gold-bright: 206 90% 48%;
+    --gold-muted: 206 30% 65%;
+    --teal: 355 78% 48%;
+    --teal-bright: 355 85% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont,
+      sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: hsl(var(--gold) / 0.25);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+
+  /* === HEADLINE TYPOGRAPHY (game-launch energy) === */
+  .headline-mega {
+    font-family: "Segoe UI", "Inter", sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    text-wrap: balance;
+  }
+
+  .headline-display {
+    font-family: "Segoe UI", "Inter", sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+
+  .headline-script {
+    font-family: "Segoe UI", "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+
+  /* === EYEBROW LABELS === */
+  .eyebrow {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-gold;
+  }
+
+  .eyebrow::before {
+    content: none;
+  }
+
+  .eyebrow-bracket::before {
+    content: "❮";
+    color: hsl(var(--gold));
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    background: none;
+    width: auto;
+    height: auto;
+  }
+
+  /* === DECORATIVE GLYPHS === */
+  .text-gradient-gold {
+    background: linear-gradient(135deg,
+        hsl(var(--gold-bright)) 0%,
+        hsl(var(--gold)) 50%,
+        hsl(41 45% 45%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .divider-gold {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        hsl(var(--gold) / 0.7) 50%,
+        transparent 100%);
+    height: 1px;
+  }
+
+  .divider-gold-thick {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        hsl(var(--gold) / 0.4) 15%,
+        hsl(var(--gold) / 0.9) 50%,
+        hsl(var(--gold) / 0.4) 85%,
+        transparent 100%);
+    height: 2px;
+  }
+
+  /* === SURFACES === */
+  .surface-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 2px hsl(220 20% 10% / 0.04);
+  }
+
+  .surface-elevated {
+    background: hsl(var(--navy-elevated));
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* === HUD-STYLE BADGE === */
+  .hud-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm;
+    background: hsl(var(--gold));
+    color: #fff;
+  }
+
+  .hud-badge-gold {
+    background: hsl(var(--gold));
+    color: #fff;
+  }
+
+  /* === ANGULAR / SHARP CARDS === */
+  .edge-card {
+    background: linear-gradient(180deg,
+        hsl(var(--navy-surface)) 0%,
+        hsl(var(--navy)) 100%);
+    border: 1px solid hsl(var(--border));
+    clip-path: polygon(14px 0%,
+        100% 0%,
+        100% calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        0% 100%,
+        0% 14px);
+  }
+
+  /* === BUTTONS === */
+  .btn-gold {
+    background: linear-gradient(180deg,
+        hsl(var(--gold-bright)) 0%,
+        hsl(var(--gold)) 100%);
+    color: hsl(var(--primary-foreground));
+    box-shadow:
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.3),
+      0 10px 30px -10px hsl(var(--gold) / 0.55);
+    transition: all 0.2s ease;
+  }
+
+  .btn-gold:hover {
+    background: linear-gradient(180deg,
+        hsl(var(--gold-bright)) 0%,
+        hsl(var(--gold-bright)) 100%);
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.4),
+      0 16px 40px -10px hsl(var(--gold) / 0.7);
+  }
+
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost-gold {
+    border: 1px solid hsl(var(--gold) / 0.4);
+    color: hsl(var(--gold-bright));
+    background: hsl(var(--gold) / 0.05);
+    transition: all 0.2s ease;
+  }
+
+  .btn-ghost-gold:hover {
+    background: hsl(var(--gold) / 0.12);
+    border-color: hsl(var(--gold) / 0.7);
+  }
+}
+
+@layer utilities {
+  .section-spacing {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* === CINEMATIC FULL-BLEED SECTIONS === */
+  .cinematic-section {
+    @apply relative isolate overflow-hidden;
+    min-height: clamp(640px, 88vh, 1100px);
+  }
+
+  .cinematic-bg {
+    @apply absolute inset-0 -z-10;
+  }
+
+  .cinematic-bg img,
+  .cinematic-bg .bg-image {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .scrim {
+    @apply absolute inset-0;
+    background: linear-gradient(180deg,
+        rgb(10 15 25 / 0.15) 0%,
+        rgb(10 15 25 / 0.55) 55%,
+        rgb(6 10 18 / 0.92) 100%);
+  }
+
+  .scrim-side-left {
+    background: linear-gradient(90deg,
+        hsl(var(--navy-deep) / 0.95) 0%,
+        hsl(var(--navy-deep) / 0.6) 45%,
+        hsl(var(--navy-deep) / 0.2) 100%);
+  }
+
+  .scrim-side-right {
+    background: linear-gradient(270deg,
+        hsl(var(--navy-deep) / 0.95) 0%,
+        hsl(var(--navy-deep) / 0.6) 45%,
+        hsl(var(--navy-deep) / 0.2) 100%);
+  }
+
+  /* === ANGULAR SECTION CUTS === */
+  .clip-slash-top {
+    clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .clip-slash-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  }
+
+  .clip-slash-both {
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+  }
+
+  /* === MARQUEE === */
+  .marquee-track {
+    display: inline-flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+
+  /* === GRAIN OVERLAY === */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* === CORNER MARKS (HUD) === */
+  .corner-marks::before,
+  .corner-marks::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: hsl(var(--gold) / 0.6);
+    border-style: solid;
+    border-width: 0;
+    pointer-events: none;
+  }
+
+  .corner-marks::before {
+    top: 8px;
+    left: 8px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+  }
+
+  .corner-marks::after {
+    bottom: 8px;
+    right: 8px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+  }
+}
